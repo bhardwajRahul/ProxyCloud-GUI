@@ -1,0 +1,177 @@
+{
+    "name": "proxycloud-gui",
+    "productName": "ProxyCloud GUI",
+    "description": "ProxyCloud GUI, Free, Fast",
+    "keywords": [],
+    "main": "./main.js",
+    "version": "1.0.0",
+    "author": "Hossein Pira <h3dev.pira@gmail.com>",
+    "scripts": {
+        "start": "electron .",
+        "win": "npx electron-builder --win",
+        "linux": "npx electron-builder --linux",
+        "build": "npx electron-builder",
+        "build:win": "electron-builder --win",
+        "build:linux": "electron-builder --linux deb"
+    },
+    "build": {
+        "compression": "maximum",
+        "protocols": [
+            {
+                "name": "proxycloud gui",
+                "schemes": [
+                    "proxycloud-gui"
+                ]
+            }
+        ],
+        "extraResources": [
+            {
+                "from": "assets/",
+                "to": "assets/",
+                "filter": [
+                    "**/*"
+                ]
+            }
+        ],
+        "productName": "ProxyCloud GUI",
+        "appId": "cloud.proxy.gui",
+        "artifactName": "proxycloud-gui-${os}-${arch}.${ext}",
+        "asar": true,
+        "directories": {
+            "output": "dist"
+        },
+        "win": {
+            "icon": "src/assets/icon/ico.png",
+            "target": [
+                "nsis",
+                "portable"
+            ],
+            "requestedExecutionLevel": "requireAdministrator",
+            "legalTrademarks": "(c) 2025 ProxyCloud",
+            "extraResources": [
+                {
+                    "from": "src/main/cores/win32/",
+                    "to": "src/main/cores/win32/",
+                    "filter": [
+                        "**/*"
+                    ]
+                },
+                {
+                    "from": "src/main/cores/grid/",
+                    "to": "src/main/cores/grid/",
+                    "filter": [
+                        "**/*"
+                    ]
+                }
+            ],
+            "files": [
+                "!src/main/cores/**/*"
+            ]
+        },
+        "mac": {
+            "icon": "src/assets/icon/mac.png",
+            "target": [
+                "dmg",
+                "zip"
+            ],
+            "category": "public.app-category.networking.vpn",
+            "extraResources": [
+                {
+                    "from": "src/main/cores/mac/",
+                    "to": "src/main/cores/mac/",
+                    "filter": [
+                        "**/*"
+                    ]
+                },
+                {
+                    "from": "src/main/cores/grid/",
+                    "to": "src/main/cores/grid/",
+                    "filter": [
+                        "**/*"
+                    ]
+                }
+            ],
+            "files": [
+                "!src/main/cores/**/*"
+            ]
+        },
+        "nsis": {
+            "allowToChangeInstallationDirectory": true,
+            "oneClick": false,
+            "license": "./LICENSE"
+        },
+        "portable": {
+            "artifactName": "proxycloud-gui-win-portable.exe"
+        },
+        "linux": {
+            "icon": "src/assets/icon/ico.png",
+            "target": [
+                "deb",
+                "tar.gz",
+                "rpm",
+                "AppImage"
+            ],
+            "category": "VPN",
+            "publish": false,
+            "extraResources": [
+                {
+                    "from": "src/main/cores/linux/",
+                    "to": "src/main/cores/linux/",
+                    "filter": [
+                        "**/*"
+                    ]
+                },
+                {
+                    "from": "src/main/cores/grid/",
+                    "to": "src/main/cores/grid/",
+                    "filter": [
+                        "**/*"
+                    ]
+                }
+            ],
+            "files": [
+                "!src/main/cores/**/*"
+            ]
+        },
+        "publish": {
+            "provider": "github",
+            "publishAutoUpdate": false
+        },
+        "files": [
+            "!assets/**/*",
+            "src/**/*",
+            "!src/main/cores",
+            "!src/plus/apps",
+            "!dist/",
+            "node_modules/**/*",
+            "package.json",
+            "main.js",
+            "*.js",
+            "*.html",
+            "*.css",
+            "*.png",
+            "*.ico",
+            "!one.one",
+            "*.bat",
+            "!proxycloud-gui.json",
+            "!data/**/*"
+        ]
+    },
+    "dependencies": {
+        "@aptabase/electron": "^0.3.1",
+        "axios": "^1.8.2",
+        "geoip-lite": "^1.4.10",
+        "jquery": "^3.7.1",
+        "jquery.easing": "^1.4.1",
+        "node-gyp": "^10.1.0",
+        "node-notifier": "^10.0.1"
+    },
+    "devDependencies": {
+        "electron": "^31.7.7",
+        "fs": "^0.0.1-security"
+    },
+    "bugs": {
+        "url": "https://github.com/code3-dev/ProxyCloud-GUI/issues",
+        "email": "h3dev.pira@gmail.com"
+    }
+}

@@ -1,0 +1,140 @@
+:root {
+    --primary-brand-color: #ff00ff;
+    --primary-brand-hover: #f000f0;
+    --secondary-brand-color: #00ffff;
+    --accent-color: #192252;
+    --background-dark: #0d001a;
+    --text-light: #ffffff;
+    --text-muted: #e0e0e0;
+    --danger-color: #ff6600;
+    --body-background: radial-gradient(circle at 50% 50%, rgba(50, 0, 100, 0.3), transparent 70%), #0d001a;
+}
+
+@keyframes neon-flicker {
+
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+        opacity: 1;
+        text-shadow:
+            0 0 4px #fff,
+            0 0 11px var(--primary-brand-color),
+            0 0 19px var(--primary-brand-color),
+            0 0 40px var(--primary-brand-color);
+    }
+
+    20%,
+    24%,
+    55% {
+        opacity: 0.8;
+        text-shadow: none;
+    }
+}
+
+body {
+    background: var(--background-dark);
+    color: var(--text-light);
+    font-family: 'Vazir', sans-serif;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.7);
+}
+
+h1,
+h2,
+h3 {
+    color: var(--secondary-brand-color);
+    text-shadow:
+        0 0 5px var(--secondary-brand-color),
+        0 0 10px var(--secondary-brand-color),
+        0 0 15px #fff;
+    animation: neon-flicker 3s infinite alternate;
+}
+
+.btn,
+select,
+input[type="text"] {
+    background: transparent;
+    color: var(--primary-brand-color);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px var(--primary-brand-color), inset 0 0 10px var(--primary-brand-color);
+    text-shadow: 0 0 5px var(--primary-brand-color);
+}
+
+.btn:hover,
+select:hover {
+    color: var(--text-light);
+    background: var(--primary-brand-color);
+    box-shadow: 0 0 20px var(--primary-brand-color), 0 0 30px var(--primary-brand-color);
+    text-shadow: 0 0 2px #fff;
+}
+
+select:focus,
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--secondary-brand-color);
+    box-shadow: 0 0 20px var(--secondary-brand-color), inset 0 0 10px var(--secondary-brand-color);
+}
+
+#ChangeStatus {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-brand-color);
+    background: transparent;
+    color: var(--primary-brand-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow:
+        0 0 10px var(--primary-brand-color),
+        0 0 20px var(--primary-brand-color),
+        inset 0 0 15px var(--primary-brand-color);
+    text-shadow: 0 0 7px var(--primary-brand-color);
+    transition: all 0.4s ease;
+}
+
+#ChangeStatus:hover {
+    transform: scale(1.05) rotate(5deg);
+    color: #fff;
+    border-color: #fff;
+    box-shadow:
+        0 0 20px var(--primary-brand-color),
+        0 0 40px var(--primary-brand-color),
+        0 0 60px #fff,
+        inset 0 0 15px var(--primary-brand-color);
+}
+
+#ChangeStatus.connecting {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background: linear-gradient(135deg, var(--primary-brand-color), var(--secondary-brand-color));
+    animation: rotate 5s infinite;
+    transform: rotate(-360deg);
+}
+
+@keyframes rotate {
+    50% {
+        transform: rotate(360deg);
+    }
+}
+
+#ChangeStatus.connected {
+    border-color: var(--secondary-brand-color);
+    color: var(--secondary-brand-color);
+    box-shadow:
+        0 0 15px var(--secondary-brand-color),
+        0 0 30px var(--secondary-brand-color),
+        0 0 50px #fff,
+        inset 0 0 20px var(--secondary-brand-color);
+    text-shadow: 0 0 10px var(--secondary-brand-color);
+}

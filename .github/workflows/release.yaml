@@ -151,18 +151,36 @@ jobs:
                       
                       #### Windows
                       - [📦 Windows Installer (.exe)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}-Setup.exe)
+                        - SHA256: 6a36596f520d6ecb24290c8536c8aaebb28838bf6e42963dd4890db6fd716155
+                        - Size: 121 MB
                       - [💼 Windows Portable (.zip)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}-win-portable.zip)
                       
                       #### macOS
                       - [🍎 macOS Intel (.dmg)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}-x64.dmg)
+                        - SHA256: 9195ef8a922bf2d20075abf842476a276ac93751ce8bce1c102e3ba5db8d0e1c
+                        - Size: 178 MB
                       - [🍎 macOS Apple Silicon (.dmg)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}-arm64.dmg)
+                        - SHA256: 3fcfb06121c7fcb6e505f9c080704597f9518190708decf788af408b38eaa9ad
+                        - Size: 173 MB
                       - [📦 macOS Intel (.zip)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}-x64.zip)
+                        - SHA256: 00db17641c8e8402e74c3c07104589ff959757023105c3ce5e92cb0b71413802
+                        - Size: 184 MB
                       - [📦 macOS Apple Silicon (.zip)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}-arm64.zip)
+                        - SHA256: 7f24c2f56cd3c1e0354e1be80466e192693c6a29f65cee55625552e0e5654642
+                        - Size: 178 MB
                       
                       #### Linux
                       - [🐧 Linux (.deb)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}.deb)
+                        - SHA256: c9acbdc48cc936291470c2a90433d63e428539e91dbd0b764acbd90dcc4e2933
+                        - Size: 111 MB
                       - [🐧 Linux (.rpm)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}.rpm)
+                        - SHA256: fe3de855c66196133fe8ac76da71c03d8b1ffe001b21a37704436f8abae6fd7a
+                        - Size: 111 MB
                       - [🐧 Linux (.AppImage)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}.AppImage)
+                        - SHA256: 812966bf295a36b8cf577b4a65ab3d0525d8e07e0148ab6008ee6262d8f0065e
+                        - Size: 126 MB
                       - [🐧 Linux (.tar.gz)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}.tar.gz)
+                        - SHA256: d986ae7212ad94aaa025d6389d3c75b62a487ea4f65a4efed72cfa633eec0c3b
+                        - Size: 166 MB
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

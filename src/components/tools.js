@@ -1,6 +1,7 @@
 const { spawn, exec, execFile, execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
+const os = require('os');
 
 class Tools {
     constructor() {
@@ -583,11 +584,11 @@ class Tools {
 function getConfigPath() {
     let baseDir;
     if (process.platform === "win32") {
-        baseDir = path.join(process.env.APPDATA, "ProxyCloud");
+        baseDir = path.join(process.env.APPDATA, "ProxyCloud GUI");
     } else if (process.platform === "darwin") {
-        baseDir = path.join(os.homedir(), "Library", "Application Support", "ProxyCloud");
+        baseDir = path.join(os.homedir(), "Library", "Application Support", "ProxyCloud GUI");
     } else {
-        baseDir = path.join(os.homedir(), ".config", "ProxyCloud");
+        baseDir = path.join(os.homedir(), ".config", "ProxyCloud GUI");
     }
 
     if (!fs.existsSync(baseDir)) {

@@ -4,7 +4,12 @@ on:
     push:
         tags:
             - "v*"
-    workflow_dispatch: 
+    workflow_dispatch:
+        inputs:
+            tag:
+                description: 'Tag to create release for (e.g., v1.0.0)'
+                required: true
+                default: 'v1.0.0'
 
 jobs:
     build:
@@ -137,9 +142,27 @@ jobs:
               uses: softprops/action-gh-release@v1
               with:
                   files: dist/**/*.*
-                  tag_name: ${{ github.ref_name }}
-                  name: Release ${{ github.ref_name }}
+                  tag_name: ${{ github.event.inputs.tag || github.ref_name }}
+                  name: Release ${{ github.event.inputs.tag || github.ref_name }}
                   body: |
-                      New release
+                      ## ProxyCloud GUI ${{ github.event.inputs.tag || github.ref_name }}
+                      
+                      ### 📥 Downloads
+                      
+                      #### Windows
+                      - [📦 Windows Installer (.exe)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}-Setup.exe)
+                      - [💼 Windows Portable (.zip)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}-win-portable.zip)
+                      
+                      #### macOS
+                      - [🍎 macOS Intel (.dmg)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}-x64.dmg)
+                      - [🍎 macOS Apple Silicon (.dmg)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}-arm64.dmg)
+                      - [📦 macOS Intel (.zip)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}-x64.zip)
+                      - [📦 macOS Apple Silicon (.zip)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}-arm64.zip)
+                      
+                      #### Linux
+                      - [🐧 Linux (.deb)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}.deb)
+                      - [🐧 Linux (.rpm)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}.rpm)
+                      - [🐧 Linux (.AppImage)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}.AppImage)
+                      - [🐧 Linux (.tar.gz)](https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.tag || github.ref_name }}/${{ github.event.repository.name }}.tar.gz)
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

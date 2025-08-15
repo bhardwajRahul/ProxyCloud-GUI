@@ -1,0 +1,36 @@
+name: proxycloud-gui
+version: '1.4.5'
+summary: Proxy Cloud is an open-source VPN that’s fast, unlimited, secure, and completely free.
+description: |
+  Proxy Cloud, fast, unlimited, secure, and completely free.
+
+base: core20
+confinement: strict
+
+parts:
+  proxycloud-gui:
+    plugin: nodejs
+    source: .
+    build-packages:
+      - build-essential
+      - libgtk-3-dev
+      - libx11-dev
+      - libdbus-1-dev
+    stage-packages:
+      - libgconf-2-4
+    override-build: |
+      npm install
+      npm run build
+
+apps:
+  proxycloud-gui:
+    command: desktop-launch $SNAP/bin/proxycloud-gui
+    plugs:
+      - network
+      - network-bind
+      - x11
+      - desktop
+      - unity7
+      - gsettings
+      - pulseaudio
+      - opengl

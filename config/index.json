@@ -1,5 +1,6 @@
 {
     "PUBLIC": [
+        "vibe,;,https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/base64/vless#PSG Servers",
         "vibe,;,https://raw.githubusercontent.com/darkvpnapp/CloudflarePlus/refs/heads/main/proxy#ProxyCloud",
         "vibe,;,https://raw.githubusercontent.com/Rayan-Config/C-Sub/refs/heads/main/configs/proxy.txt#RCL",
         "vibe,;,https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt#ProxyNET",

@@ -34,6 +34,18 @@ ProxyCloud GUI is a free, fast, and user-friendly desktop application for managi
 - Install the package using your package manager or extract the archive
 - Launch the application
 
+#### Arch Linux
+
+Proxycloud is now on the [AUR](https://aur.archlinux.org/packages/proxycloud-gui-bin), therefore you can install it using your prefered AUR helper.
+
+```bash
+paru -S proxycloud-gui-bin
+
+# or if you are using yay
+
+yay -S proxycloud-gui-bin
+```
+
 ## Development
 
 ### Prerequisites

@@ -5,7 +5,7 @@ const $ = require('jquery');
 require("jquery.easing");
 const { exec, execFile, spawn } = require('child_process');
 window.$ = $;
-const vesrionApp = "1.2.0";
+const vesrionApp = "1.3.0";
 let LOGS = [];
 // #endregion
 // #region components
@@ -355,6 +355,11 @@ class main {
         });
         $("#submit-config").on("click", async () => {
             await this.publicSet.importConfig($("#config-value").val());
+            this.setSettings();
+            this.reloadServers();
+        });
+        $("#add-warp-config").on("click", async () => {
+            await this.publicSet.importConfig("https://raw.githubusercontent.com/hiddify/hiddify-next/main/test.configs/warp#%F0%9F%94%A5%20WARP%20%F0%9F%94%A5");
             this.setSettings();
             this.reloadServers();
         });
@@ -812,6 +817,22 @@ class main {
             $("#connected-ping").html(`Ping: <b>${connectedInfo.ping || "N/A"} ms</b>`);
             $("#connected-status").html(`Status: <b>${connectedInfo.ping ? "Connected" : "Disconnected"}</b>`);
             $("#connected-bypass").html(`Bypass: <b>${isConnected ? "On" : "Off"}</b>`);
+            this.publicSet.settingsALL.public.core == "warp" ? $("#share-connection").hide() :
+                $("#share-connection").on("click", async () => {
+                    await this.publicSet.reloadSettings();
+                    $("#text-box-notif").html(this.publicSet.settingsALL["lang"]["share-conn"] ?? "You can share your current connected config using the buttons below");
+                    $("#box-notif").css("display", "flex");
+                    $("#href-box-notif").on("click", () => {
+                        navigator.clipboard.writeText(this.publicSet.settingsALL["public"]["quickConnectC"].replace("vibe,;,", "").replace(",;,", "://"));
+                        window.showMessageUI(this.publicSet.settingsALL["lang"]["copied"])
+                    });
+                    $("#href-box-notif").html(this.publicSet.settingsALL["lang"]["copy"] ?? "Copy");
+                    $("#close-box-notif").html(this.publicSet.settingsALL["lang"]["cancel"]);
+
+                    $("#href-box-notif, #close-box-notif").on("click", () => {
+                        $("#box-notif").css("display", "none");
+                    });
+                });
         } else {
             $("#ip-ping").attr("style", connectedInfo.ping > 1000 ? "color:red;" : "color:green;");
             $("#ip-ping").html(`${connectedInfo.ping}ms`);

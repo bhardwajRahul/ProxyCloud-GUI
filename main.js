@@ -1,6 +1,3 @@
-// Start Code
-// #region Libraries
-;
 const { app, BrowserWindow, ipcMain, Tray, Menu, nativeImage, dialog, BrowserView } = require('electron');
 const path = require('path');
 const fs = require('fs');
@@ -375,5 +372,3 @@ ipcMain.handle('read-json', async (event, filePath) => {
     });
   });
 });
-// #endregion
-// End Code

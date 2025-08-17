@@ -803,6 +803,7 @@ class ConnectAuto extends PublicSet {
                         reject(false);
                     });
 
+                    await this.sleep(this.settingsALL.vibe.timeout);
                     for (let i = 0; i < 3 && !this.connected; i++) {
                         this.connected = !(await this.getIP_Ping()).filternet;
                         if (this.connected) break;
@@ -1033,6 +1034,8 @@ class Connect extends PublicSet {
     async connectVibe() {
         await this.resetArgs("vibe");
         await this.sleep(1000);
+        this.settingsALL.public.quickConnectC = this.settingsALL.vibe.config;
+        this.saveSettings();
 
         const corePath = path.join(this.coresPath, "vibe", this.addExt("vibe-core"));
         const effectiveCorePath = process.platform === 'darwin' && process.arch === 'arm64'

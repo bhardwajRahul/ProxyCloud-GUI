@@ -1239,6 +1239,10 @@ a {
     gap: 5vw;
 }
 
+.flex {
+    display: flex;
+}
+
 .box .close-btn {
     font-size: 1.5em;
     position: absolute;
@@ -1256,6 +1260,7 @@ a {
 
 .box[style="display: block;"] {
     display: flex !important;
+    gap: 0.5em;
 }
 
 .box div {

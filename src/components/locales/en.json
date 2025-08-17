@@ -11,7 +11,7 @@
     "vpn-settings": "VPN Settings",
     "bind-address": "Bind address",
     "connection_test_url": "Connection Test URL",
-    "freedom_link": "Freedom Link (Support others by sharing your config after connection)",
+    "freedom_link": "ProxyCloud Link (Support others by sharing your config after connection)",
     "auto-mode": "Auto Mode",
     "your_isp": "Your ISP",
     "quick_connect": "Quick Connect",
@@ -32,7 +32,7 @@
     "kill_all_services": "Kill All Services",
     "logs": "Logs",
     "set_dns": "Set DNS",
-    "about_app_html": "Proxy Cloud is an open-source VPN that’s fast, unlimited, secure, and completely free.",
+    "about_app_html": "Proxy Cloud is an open-source VPN",
     "killed_services": "All services have been terminated.",
     "settings_saved": "✅ Settings were successfully saved!",
     "tun_not_supported": "😕 Oops! TUN mode is not supported in Warp.",
@@ -40,6 +40,7 @@
     "dns_set_success": "✅ DNS successfully set",
     "endpoint_retrieved": "✅ Endpoint retrieved and pasted into the input.",
     "warp_key_applied": "✅ Warp key retrieved and applied successfully.",
+    "add_warp": "Add Warp",
     "config_imported": "✅ Configuration imported successfully from deep link (protocol): ",
     "warp_mode": "Warp mode",
     "warp_key": "Warp Key",
@@ -79,5 +80,7 @@
     "vibe_mode": "V2ray Mode",
     "direct_dns": "Direct DNS",
     "auto_conn_after_runs": "Auto Connect After Runs",
-    "servers-section": "Servers Section"
+    "servers-section": "Servers Section",
+    "share-conn": "You can share your current connected config using the buttons below",
+    "copy": "Copy"
 }

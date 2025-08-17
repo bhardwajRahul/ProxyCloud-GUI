@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ProxyCloud v1.2.0</title>
+    <title>ProxyCloud v1.3.0</title>
     <link href="../assets/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" id="theme-css">
@@ -24,8 +24,11 @@
             </svg>
         </button>
         <div class="connected-box">
-            <i class="bx bx-refresh bx-spin-hover"
-                style="font-size: 2em;margin: 0.2em;margin-left: auto;margin-bottom: auto;" id="reload-ping"></i>
+            <div class="flex flex-row" style="width: 100%">
+                <i class="bx bx-share" style="font-size: 2em;margin: 0.2em;" id="share-connection"></i>
+                <i class=" bx bx-refresh bx-spin-hover" style="font-size: 2em;margin: 0.2em;margin-left: auto;"
+                    id="reload-ping"></i>
+            </div>
             <div id="connected-info">
                 <div class="connected-item" id="connected-country"></div>
                 <div class="connected-item" id="connected-ping"></div>
@@ -96,6 +99,7 @@
                 <button id="submit-config" class="btn" data-lang="import">Import</button>
                 <button id="submit-config-clipboard" class="btn"><i class='bx bxs-paste'></i></button>
                 <button id="submit-config-file" class="btn"><i class='bx bxs-folder-open'></i></button>
+                <button id="add-warp-config" class="btn" data-lang="add_warp">Add Warp</button>
             </div>
             <div class="divider"></div>
 
@@ -142,7 +146,7 @@
                 </div>
                 <div class="divider"></div>
 
-                <b data-lang="freedom_link">Freedom Link (Support others by sharing your config after connection)</b>
+                <b data-lang="freedom_link">ProxyCloud Link (Support others by sharing your config after connection)</b>
                 <div id="freedom-link">
                     <label class="switch">
                         <input type="checkbox" id="freedom-link-status" />

@@ -34,8 +34,30 @@ ProxyCloud GUI is a free, fast, and user-friendly desktop application for managi
 
 - Download the latest Windows installer or portable version from the [Releases](https://github.com/code3-dev/ProxyCloud-GUI/releases) page
 - Run the installer or run the portable version
+- If Windows shows "Windows protected your PC" message when installing:
+  1. Click on "More info"
+  
+  ![More info button](config/screenshots/more.png)
+  
+  2. Then click on "Run anyway"
+  
+  ![Run anyway button](config/screenshots/run-anyway.png)
 - Launch the application
 - The application will automatically configure necessary components including TUN drivers
+
+#### Important Notes for Windows Portable Version
+
+- Always run as Administrator
+- The Portable version doesn't require installation
+- The Portable file works on all Windows versions
+- If Windows shows "Windows protected your PC" message when installing or running the application:
+  1. Click on "More info"
+  
+  ![More info button](config/screenshots/more.png)
+  
+  2. Then click on "Run anyway"
+  
+  ![Run anyway button](config/screenshots/run-anyway.png)
 
 ### macOS
 
@@ -50,6 +72,28 @@ ProxyCloud GUI is a free, fast, and user-friendly desktop application for managi
 - Install the package using your package manager or extract the archive
 - Launch the application
 - For TUN mode, you may need to run with elevated privileges or configure the necessary permissions
+
+#### Running in TUN Mode (Linux)
+
+To enable TUN mode in Linux, you need to provide root access to ProxyCloud. Execute the following commands one by one:
+
+**First Command:**
+```bash
+xhost +SI:localuser:root
+```
+This command allows the root user to access your display, enabling it to run the graphical interface of the application.
+
+**Second Command:**
+```bash
+sudo -E proxycloud-gui --no-sandbox
+```
+This command runs ProxyCloud with root privileges. The `-E` parameter preserves environment variables, and the `--no-sandbox` parameter disables the sandbox, which is necessary for full system access in TUN mode.
+
+**Third Command:**
+```bash
+xhost -SI:localuser:root
+```
+After you finish using the application, run this command to revoke root access to your display. This step is essential for maintaining your system's security.
 
 #### Arch Linux
 

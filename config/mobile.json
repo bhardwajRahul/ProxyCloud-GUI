@@ -1,5 +1,5 @@
 {
-    "version": "2.1.0",
+    "version": "2.1.5",
     "url": "https://github.com/code3-dev/ProxyCloud/releases/latest",
-    "messText": "Fix Ping Bugs\nFix Server List"
+    "messText": "Add & remove single config\nGet ping for a custom sub\nFixed app crash issue\nSort servers by ping"
 }

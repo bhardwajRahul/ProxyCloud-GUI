@@ -1,6 +1,6 @@
 {
     "PUBLIC": [
-        "vibe,;,https://raw.githubusercontent.com/wuqb2i4f/xray-config-toolkit/main/output/base64/mix-uri",
+        "vibe,;,https://raw.githubusercontent.com/wuqb2i4f/xray-config-toolkit/main/output/base64/mix-uri#ProxyCloud Fast",
         "vibe,;,https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt#ProxyCloud MAX",
         "vibe,;,https://raw.githubusercontent.com/Mahdi0024/ProxyCollector/master/sub/proxies.txt#Red Servers Beta",
         "vibe,;,https://raw.githubusercontent.com/darkvpnapp/CloudflarePlus/refs/heads/main/proxy#ProxyCloud",

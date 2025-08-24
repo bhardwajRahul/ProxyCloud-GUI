@@ -92,5 +92,6 @@
     "mux-enable": "Mux Enable",
     "mux-padding": "Mux Padding",
     "mux-max-streams": "Mux Max Streams",
-    "mux-protocol": "Mux Protocol"
+    "mux-protocol": "Mux Protocol",
+    "mixed-port": "Mixed Port"
 }

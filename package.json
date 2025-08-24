@@ -4,7 +4,7 @@
     "description": "ProxyCloud GUI, Free, Fast",
     "keywords": [],
     "main": "./main.js",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "author": "Hossein Pira <h3dev.pira@gmail.com>",
     "scripts": {
         "start": "electron .",
@@ -12,7 +12,8 @@
         "linux": "npx electron-builder --linux",
         "build": "npx electron-builder",
         "build:win": "electron-builder --win",
-        "build:linux": "electron-builder --linux deb"
+        "build:linux": "electron-builder --linux deb",
+        "build:mac": "electron-builder --mac"
     },
     "build": {
         "compression": "maximum",

@@ -93,5 +93,6 @@
     "mux-padding": "Padding Mux",
     "mux-max-streams": "حداکثر جریان‌های Mux",
     "mux-protocol": "پروتکل Mux",
-    "region": "منطقه"
+    "region": "منطقه",
+    "mixed-port": "پورت چند منظوره"
 }

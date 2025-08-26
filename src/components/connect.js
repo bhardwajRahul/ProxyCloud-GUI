@@ -623,14 +623,11 @@ class PublicSet {
         };
     }
     startINIT() {
-        const flagFilePath = path.join(getConfigPath(), "one.one");
-        try {
-            readFile("one.one", "cache");
-        } catch {
-            writeFile("one.one", "is not new user.", "cache");
-            if (typeof window !== 'undefined' && window.startNewUser) {
-                window.startNewUser();
-            }
+        this.reloadSettings();
+        if ((this.settingsALL.public.newUser ?? true)) {
+            window.startNewUser();
+            this.settingsALL.public.newUser = false;
+            this.saveSettings();
         }
     }
 }
@@ -845,11 +842,13 @@ class ConnectAuto extends PublicSet {
             }
             this.argsVibe.push(vibeConfig);
 
+            if (!this.settingsALL.vibe.hiddifyConfigJSON || this.settingsALL.vibe.hiddifyConfigJSON == "null") {
+                this.settingsALL.vibe.hiddifyConfigJSON = this.resetVibeSettings();
+            }
+            this.settingsALL.vibe.hiddifyConfigJSON["mixed-port"] = parseInt(this.settingsALL.public.proxy.split(":")[1]) ?? 8086;
+
 
             if (this.settingsALL.public.type === "tun") {
-                if (!this.settingsALL.vibe.hiddifyConfigJSON || this.settingsALL.vibe.hiddifyConfigJSON == "null") {
-                    this.settingsALL.vibe.hiddifyConfigJSON = this.resetVibeSettings();
-                }
                 this.settingsALL.vibe.hiddifyConfigJSON["enable-tun"] = true;
                 this.argsVibe.push("--tun");
             } else {
@@ -1127,10 +1126,14 @@ class Connect extends PublicSet {
             let vibeConfig = this.settingsALL.vibe.config;
             this.argsVibe.push(vibeConfig.replace(/^"|"$/g, '').replace(/^'|'$/g, ''));
 
+
+            if (!this.settingsALL.vibe.hiddifyConfigJSON || this.settingsALL.vibe.hiddifyConfigJSON == "null") {
+                this.settingsALL.vibe.hiddifyConfigJSON = this.resetVibeSettings();
+            }
+            this.settingsALL.vibe.hiddifyConfigJSON["mixed-port"] = parseInt(this.settingsALL.public.proxy.split(":")[1]) ?? 8086;
+
+
             if (this.settingsALL.public.type === "tun") {
-                if (!this.settingsALL.vibe.hiddifyConfigJSON || this.settingsALL.vibe.hiddifyConfigJSON == "null") {
-                    this.settingsALL.vibe.hiddifyConfigJSON = this.resetVibeSettings();
-                }
                 this.settingsALL.vibe.hiddifyConfigJSON["enable-tun"] = true;
                 this.argsVibe.push("--tun");
             } else {
